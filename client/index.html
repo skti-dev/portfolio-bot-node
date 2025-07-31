@@ -201,8 +201,10 @@
 
     <script src="chatbot.js"></script>
     <script>
-        // Configuração do chatbot
-        const chatbot = new PortfolioChatbot('http://localhost:3001');
+        const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        const apiUrl = isLocalhost ? 'http://localhost:3001' : 'https://good-monster-socially.ngrok-free.app';
+        
+        const chatbot = new PortfolioChatbot(apiUrl);
         let currentLanguage = 'pt';
         
         // Elementos DOM

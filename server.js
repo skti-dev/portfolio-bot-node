@@ -23,17 +23,44 @@ const augustoSeabraInfo = {
     "Desenvolvimento Web",
     "JavaScript/TypeScript",
     "React",
+    "PHP",
+    "NoSQL",
+    "MongoDB",
+    "Desenvolvimento de APIs",
     "Node.js",
     "Python",
-    "Banco de Dados",
+    "Langchain",
+    "CrewAI",
   ],
   contato: {
     email: "augusto.seabra@email.com",
-    linkedin: "linkedin.com/in/augusto-seabra",
-    github: "github.com/augusto-seabra",
+    linkedin: "https://www.linkedin.com/in/augusto-seabra-desenvolvedor/",
+    github: "https://github.com/skti-dev",
   },
   sobre:
     "Desenvolvedor apaixonado por tecnologia com experiência em desenvolvimento full stack, sempre buscando criar soluções inovadoras e eficientes.",
+  sections: [
+    {
+      section: "Experiência Profissional",
+      content:
+        "Desenvolvedor Full Stack com experiência em projetos de grande escala, utilizando tecnologias modernas como Vue, React, Node.js e Python. Participação ativa em todas as fases do desenvolvimento, desde a concepção até a entrega final.",
+    },
+    {
+      section: "Habilidades Técnicas",
+      content:
+        "Profundo conhecimento em JavaScript/TypeScript, com experiência em frameworks como React e Vue. Sólidos conhecimentos em desenvolvimento de APIs RESTful com Node.js e integração com bancos de dados NoSQL como MongoDB. Competências em Python para automação e scripts. Conhecimentos sólidos em chatbots e IA, incluindo Langchain e CrewAI.",
+    },
+    {
+      section: "Formação Acadêmica",
+      content:
+        "Graduado em Sistemas para Internet pela FIAP (Faculdade de Informática e Administração Paulista) desde dezembro 2022. Estuda programação desde 2016 e diversos cursos de especialização em tecnologias web e desenvolvimento de software.",
+    },
+    {
+      section: "Interesses",
+      content:
+        "Gosta de andar de skate como hobby e também é um entusiasta em criações com arduinos e outras tecnologias de hardware. Tem interesse em medidas tecnológicas que possam melhorar a vida das pessoas, como automação residencial e dispositivos inteligentes.",
+    },
+  ],
 };
 
 // Endpoint principal do chatbot
@@ -50,11 +77,10 @@ app.post("/api/chat", async (req, res) => {
       });
     }
 
-    // Criar prompt baseado no contexto do portfólio de Augusto Seabra
     const systemPrompt =
       language === "pt"
         ? `Você é um assistente virtual especializado no portfólio de Augusto Seabra. 
-         Responda em português brasileiro de forma amigável, profissional e objetiva.
+         Responda na lingua que for perguntado de forma amigável, profissional e objetiva.
          
          Use as informações fornecidas para responder sobre:
          - Experiência profissional e projetos
@@ -66,7 +92,7 @@ app.post("/api/chat", async (req, res) => {
          
          Mantenha as respostas concisas mas informativas.`
         : `You are a virtual assistant specialized in Augusto Seabra's portfolio.
-         Respond in English in a friendly, professional and objective manner.
+         Respond in the language that is asked in a friendly, professional and objective manner.
          
          Use the provided information to answer about:
          - Professional experience and projects
@@ -78,7 +104,6 @@ app.post("/api/chat", async (req, res) => {
          
          Keep responses concise but informative.`;
 
-    // Combinar informações base com contexto adicional da página
     const contextInfo = `
 Informações sobre Augusto Seabra:
 Nome: ${augustoSeabraInfo.nome}
