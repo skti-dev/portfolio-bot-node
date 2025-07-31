@@ -205,10 +205,6 @@ npm run dev
 curl http://localhost:3001/health
 ```
 
-## 📄 Licença
-
-MIT License - veja o arquivo LICENSE para detalhes.
-
 ## 🤝 Contribuição
 
 Este é um projeto personalizado para o portfólio de Augusto Seabra. Para sugestões ou melhorias, entre em contato diretamente.
